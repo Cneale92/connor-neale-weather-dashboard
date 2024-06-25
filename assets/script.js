@@ -53,3 +53,34 @@ function saveCitiesToStorage(cities) {
   localStorage.setItem("cities", JSON.stringify(cities));
 }
 
+const citySubmitHandler = function (event) {
+  event.preventDefault();
+
+  if (!cityInputEl.value) {
+    alert("Entry cannot be blank. Please enter a valid city name.");
+  } else {
+    document.getElementById(`right-content`).style.visibility = `visible`;
+
+    let dataValue = cityInputEl.value;
+
+    const cities = readCitiesFromStorage();
+    cities.push(cityInputEl.value);
+
+    saveCitiesToStorage(cities);
+
+    showCurrentWeather(dataValue);
+    showFiveDayForecast(dataValue);
+
+    let cityButton = document.createElement("button");
+    cityButton.setAttribute("data-value", dataValue);
+    cityButton.classList.add("btn");
+    cityButton.classList.add("btn-secondary");
+    let cityName = document.createElement("h4");
+    cityName.textContent = dataValue;
+
+    cityButton.appendChild(cityName);
+    pastCitiesEl.appendChild(cityButton);
+
+    cityInputEl.value = "";
+  }
+};
