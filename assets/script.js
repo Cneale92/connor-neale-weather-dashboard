@@ -106,3 +106,90 @@ function showCurrentWeather(dataValue) {
     }
   });
 }
+
+function showFiveDayForecast(dataValue) {
+  const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${dataValue}&units=metric&appid=${apiKey}`;
+
+  fetch(apiUrlFiveDays).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (data) {
+
+
+        document.getElementById(`day1Date`).textContent = now
+          .add(1, "day")
+          .format("DD/MM/YYYY");
+
+        var iconcode1 = data.list[7].weather[0].icon;
+        var iconurl1 = "https://openweathermap.org/img/w/" + iconcode1 + ".png";
+        $("#wicon1").attr("src", iconurl1);
+
+        document.getElementById(`day1Weather`).textContent =
+          `Temp: ` + data.list[7].main.temp + ` °C`;
+        document.getElementById(`day1Wind`).textContent =
+          `Wind: ` + data.list[7].wind.speed + ` m/s`;
+        document.getElementById(`day1Humidity`).textContent =
+          `Humidity: ` + data.list[7].main.humidity + `%`;
+
+        document.getElementById(`day2Date`).textContent = now
+          .add(2, "day")
+          .format("DD/MM/YYYY");
+
+        var iconcode2 = data.list[15].weather[0].icon;
+        var iconurl2 = "https://openweathermap.org/img/w/" + iconcode2 + ".png";
+        $("#wicon2").attr("src", iconurl2);
+
+        document.getElementById(`day2Weather`).textContent =
+          `Temp: ` + data.list[15].main.temp + ` °C`;
+        document.getElementById(`day2Wind`).textContent =
+          `Wind: ` + data.list[15].wind.speed + ` m/s`;
+        document.getElementById(`day2Humidity`).textContent =
+          `Humidity: ` + data.list[15].main.humidity + `%`;
+
+        document.getElementById(`day3Date`).textContent = now
+          .add(3, "day")
+          .format("DD/MM/YYYY");
+
+        var iconcode3 = data.list[23].weather[0].icon;
+        var iconurl3 = "https://openweathermap.org/img/w/" + iconcode3 + ".png";
+        $("#wicon3").attr("src", iconurl3);
+
+        document.getElementById(`day3Weather`).textContent =
+          `Temp: ` + data.list[23].main.temp + ` °C`;
+        document.getElementById(`day3Wind`).textContent =
+          `Wind: ` + data.list[23].wind.speed + ` m/s`;
+        document.getElementById(`day3Humidity`).textContent =
+          `Humidity: ` + data.list[23].main.humidity + `%`;
+
+        document.getElementById(`day4Date`).textContent = now
+          .add(4, "day")
+          .format("DD/MM/YYYY");
+
+        var iconcode4 = data.list[31].weather[0].icon;
+        var iconurl4 = "https://openweathermap.org/img/w/" + iconcode4 + ".png";
+        $("#wicon4").attr("src", iconurl4);
+
+        document.getElementById(`day4Weather`).textContent =
+          `Temp: ` + data.list[31].main.temp + ` °C`;
+        document.getElementById(`day4Wind`).textContent =
+          `Wind: ` + data.list[31].wind.speed + ` m/s`;
+        document.getElementById(`day4Humidity`).textContent =
+          `Humidity: ` + data.list[31].main.humidity + `%`;
+
+        document.getElementById(`day5Date`).textContent = now
+          .add(5, "day")
+          .format("DD/MM/YYYY");
+
+        var iconcode5 = data.list[39].weather[0].icon;
+        var iconurl5 = "https://openweathermap.org/img/w/" + iconcode5 + ".png";
+        $("#wicon5").attr("src", iconurl5);
+
+        document.getElementById(`day5Weather`).textContent =
+          `Temp: ` + data.list[39].main.temp + ` °C`;
+        document.getElementById(`day5Wind`).textContent =
+          `Wind: ` + data.list[39].wind.speed + ` m/s`;
+        document.getElementById(`day5Humidity`).textContent =
+          `Humidity: ` + data.list[39].main.humidity + `%`;
+      });
+    }
+  });
+}
