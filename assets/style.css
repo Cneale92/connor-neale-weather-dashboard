@@ -1,0 +1,45 @@
+#main-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+#pastCities {
+    display: grid;
+}
+
+#current-city-weather {
+    padding-left: 1em;
+}
+
+.current-city-header {
+    display: flex;
+    align-items: center;
+}
+
+.weather-icons {
+    position: relative;
+    padding-left: 10px;
+}
+.current-city-header h2 {
+    float: left;
+}
+
+.current-city-header img {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    padding-left: 10px;
+}
+
+h4 {
+    display: block;
+    pointer-events: none;
+}
+
+.btn-secondary {
+    margin-bottom: 10px;
+}
+
+#city-form {
+    margin-bottom: 25px;
+}
