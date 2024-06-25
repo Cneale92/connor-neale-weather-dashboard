@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="p-4 mb-4 border-bottom border-5">
+      <button class="btn btn-warning" id="clearStorage">Clear previous cities</button>
+      <h1 class="display-3 text-center">Weather Dashboard</h1>
+    </header>
+
+
+    <div id="main-content" class="grid">
+        <div id="left-sidebar" class="col-3">
+            <form id="city-form">
+                <div class="mb-3">
+                  <label for="cityInput" class="form-label"><h2>Search for a city:</h2></label>
+                  <input type="text" class="form-control" id="cityInput">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              <h3 class="text-center">Previous cities entered:</h3>
+              <div id="pastCities" class="mt-4"></div>
+        </div>
+
+        <div id="right-content" class="col-6">
+            <div id="current-city-weather" class="border border-5">
+                <div class="current-city-header">
+                    <h2 id="cityName"></h2>
+                    <div id="iconToday"><img id="wiconToday" src="" alt="Weather icon"></div>
+                </div>
+                <p id="cityTemp"></p>
+                <p id="cityWind"></p>
+                <p id="cityHumidity"></p>
+            </div>
+
+            <div class="row d-flex justify-content-around mt-3">
+                <h2 class="row d-flex justify-content-around mt-3">Five day forecast</h2>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title" id="day1Date"></h5>
+                      <div class="weather-icons" id="icon1"><img id="wicon1" src="" alt="Weather icon"></div>
+                      <p class="card-text" id="day1Weather"></p>
+                      <p class="card-text" id="day1Wind"></p>
+                      <p class="card-text" id="day1Humidity"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                  <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" id="day2Date"></h5>
+                        <div class="weather-icons" id="icon2"><img id="wicon2" src="" alt="Weather icon"></div>
+                        <p class="card-text" id="day2Weather"></p>
+                        <p class="card-text" id="day2Wind"></p>
+                        <p class="card-text" id="day2Humidity"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title" id="day3Date"></h5>
+                        <div class="weather-icons" id="icon3"><img id="wicon3" src="" alt="Weather icon"></div>
+                        <p class="card-text" id="day3Weather"></p>
+                        <p class="card-text" id="day3Wind"></p>
+                        <p class="card-text" id="day3Humidity"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title" id="day4Date"></h5>
+                        <div class="weather-icons" id="icon4"><img id="wicon4" src="" alt="Weather icon"></div>
+                        <p class="card-text" id="day4Weather"></p>
+                        <p class="card-text" id="day4Wind"></p>
+                        <p class="card-text" id="day4Humidity"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title" id="day5Date"></h5>
+                        <div class="weather-icons" id="icon5"><img id="wicon5" src="" alt="Weather icon"></div>
+                        <p class="card-text" id="day5Weather"></p>
+                        <p class="card-text" id="day5Wind"></p>
+                        <p class="card-text" id="day5Humidity"></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+        </div>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="./assets/script.js"></script>
+</body>
+</html>
