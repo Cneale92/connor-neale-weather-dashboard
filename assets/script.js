@@ -49,3 +49,7 @@ $(document).ready(function () {
   return citiesParsed;
 });
 
+function saveCitiesToStorage(cities) {
+  localStorage.setItem("cities", JSON.stringify(cities));
+}
+
