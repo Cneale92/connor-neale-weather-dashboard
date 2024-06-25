@@ -14,3 +14,13 @@ const apiKey = `c16b89d5a85d543c78bba4d012495c74`;
 
 const now = dayjs();
 let tomorrow = now.add(1, "day").format("DD/MM/YYYY");
+
+function readCitiesFromStorage() {
+  let cities = localStorage.getItem("cities");
+  if (!cities) {
+    return [];
+  }
+  let citiesParsed = JSON.parse(cities);
+  return citiesParsed;
+}
+
