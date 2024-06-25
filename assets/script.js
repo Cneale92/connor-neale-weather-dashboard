@@ -24,3 +24,28 @@ function readCitiesFromStorage() {
   return citiesParsed;
 }
 
+$(document).ready(function () {
+  let cities = localStorage.getItem("cities");
+
+  if (!cities) {
+    return [];
+  }
+
+  let citiesParsed = JSON.parse(cities);
+  for (let i = 0; i < citiesParsed.length; i++) {
+    console.log(citiesParsed[i]);
+
+    let cityButton = document.createElement("button");
+    cityButton.setAttribute("data-value", citiesParsed[i]);
+    cityButton.classList.add("btn");
+    cityButton.classList.add("btn-secondary");
+    let cityName = document.createElement("h4");
+    cityName.textContent = citiesParsed[i];
+
+    cityButton.appendChild(cityName);
+    pastCitiesEl.appendChild(cityButton);
+  }
+
+  return citiesParsed;
+});
+
