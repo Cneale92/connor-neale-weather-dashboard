@@ -193,3 +193,21 @@ function showFiveDayForecast(dataValue) {
     }
   });
 }
+
+pastCitiesEl.addEventListener("click", function (event) {
+  document.getElementById(`right-content`).style.visibility = `visible`;
+
+  const element = event.target;
+  if (element.matches("button") === true) {
+    let dataValue = element.getAttribute("data-value");
+    showCurrentWeather(dataValue);
+    showFiveDayForecast(dataValue);
+  }
+});
+
+cityFormEl.addEventListener("submit", citySubmitHandler);
+
+document.getElementById("clearStorage").addEventListener("click", function () {
+  localStorage.clear();
+  location.reload();
+});
