@@ -84,3 +84,25 @@ const citySubmitHandler = function (event) {
     cityInputEl.value = "";
   }
 };
+
+function showCurrentWeather(dataValue) {
+  const apiUrlToday = `https://api.openweathermap.org/data/2.5/weather?q=${dataValue}&units=metric&appid=${apiKey}`;
+
+  fetch(apiUrlToday).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (data) {
+
+        cityNameEl.textContent = `${data.name} ${now.format("DD/MM/YYYY")}`;
+
+        var iconcodeToday = data.weather[0].icon;
+        var iconurlToday =
+          "https://openweathermap.org/img/w/" + iconcodeToday + ".png";
+        $("#wiconToday").attr("src", iconurlToday);
+
+        cityTempEl.textContent = `Temperature: ${data.main.temp} °C`;
+        cityWindEl.textContent = `Wind: ${data.wind.speed} m/s`;
+        cityHumidityEl.textContent = `Humidity: ${data.main.humidity}%`;
+      });
+    }
+  });
+}
